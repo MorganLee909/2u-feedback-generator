@@ -3,12 +3,207 @@
 <head>
     <meta charset="utf-8"/>
     <title>Fullstack Homework Feedback Generator | edX</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: black;
+            color: white;
+        }
+        #reset{
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            padding: 15px;
+            color: white;
+            background: #474747;
+            border: none;
+            cursor: pointer;
+        }
+        #reset:hover{
+            background: #636363;
+        }
+        #reset:active{
+            background: #828282;
+        }
+        .option{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .optionButton{
+            padding: 10px;
+            border: none;
+            background: #474747;
+            width: 500px;
+            margin: 15px;
+            cursor: pointer;
+            color: white;
+        }
+        .optionButton:hover{
+            background: #636363;
+        }
+        .optionButton:active{
+            background: #828282;
+        }
+        input{
+            font-size: 26px;
+        }
+        #copyBtn{
+            padding: 15px;
+            border:none;
+            background: #474747;
+            margin: 15px;
+            cursor: pointer;
+            color: white;
+        }
+        #copyBtn:hover{
+            background: #636363;
+        }
+        #copyBtn:active{
+            background: #828282;
+        }
+        #feedback{
+            flex-direction: row;
+            justify-content: space-around;
+            height: 100vh;
+            width: 100vw;
+        }
+        #gitHubComments, #moduleComments{
+            display: flex;
+            flex-direction: column;
+        }
+        #gitHubComments{
+            align-items: flex-end;
+        }
+        #moduleComments{
+            align-items: flex-start;
+        }
+        #moduleComments label{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    </style>
 </head>
 <body>
+    <button id="reset" onclick="reset()">Reset</button>
+
+    <div id="chooseModule" class="option">
+        <h1>Choose Module</h1>
+        <button class="optionButton" onclick="chooseModule(1)">Module 1</button>
+        <button class="optionButton" onclick="chooseModule(2)">Module 2</button>
+        <button class="optionButton" onclick="chooseModule(3)">Module 3</button>
+        <button class="optionButton" onclick="chooseModule(4)">Module 4</button>
+        <button class="optionButton" onclick="chooseModule(5)">Module 5</button>
+        <button class="optionButton" onclick="chooseModule(6)">Module 6</button>
+        <button class="optionButton" onclick="chooseModule(9)">Module 9</button>
+        <button class="optionButton" onclick="chooseModule(10)">Module 10</button>
+        <button class="optionButton" onclick="chooseModule(11)">Module 11</button>
+        <button class="optionButton" onclick="chooseModule(12)">Module 12</button>
+        <button class="optionButton" onclick="chooseModule(13)">Module 13</button>
+        <button class="optionButton" onclick="chooseModule(14)">Module 14</button>
+        <button class="optionButton" onclick="chooseModule(17)">Module 17</button>
+        <button class="optionButton" onclick="chooseModule(18)">Module 18</button>
+        <button class="optionButton" onclick="chooseModule(19)">Module 19</button>
+        <button class="optionButton" onclick="chooseModule(20)">Module 20</button>
+        <button class="optionButton" onclick="chooseModule(21)">Module 21</button>
+    </div>
+
+    <div id="chooseQuality" class="option" style="display:none">
+        <h1>Choose Quality</h1>
+        <button class="optionButton" onclick="chooseQuality('perfect')">Perfect</button>
+        <button class="optionButton" onclick="chooseQuality('almostPerfect')">Almost Perfect</button>
+        <button class="optionButton" onclick="chooseQuality('fewProblems')">Few Problems</button>
+        <button class="optionButton" onclick="chooseQuality('manyProblems')">Many Problems</button>
+        <button class="optionButton" onclick="chooseQuality('inProgress')">In Progress</button>
+        <button class="optionButton" onclick="chooseQuality('notWorking')">Not Working</button>
+    </div>
+
+    <form id="studentName" class="option" style="display:none" onsubmit="chooseName()">
+        <h1>Student Name:</h1>
+        <input id="nameInput" type="text"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+    <form id="studentGrade" class="option" style="display:none" onsubmit="chooseGrade()">
+        <h1>Enter Grade:</h1>
+        <input id="gradeInput" type="number" min="0" max="100" step="1"/>
+        <input type="Submit" value="Submit"/>
+    </form>
+
+    <div id="feedback" class="option" style="display:none">
+        <div id="gitHubComments">
+            <label>Small commit history
+                <input type="checkbox" onchange="updateComment()" data-idx="0"/>
+            </label>
+
+            <label>Bad repo name
+                <input type="checkbox" onchange="updateComment()" data-idx="1"/>
+            </label>
+
+            <label>Contains develop directory
+                <input type="checkbox" onchange="updateComment()" data-idx="2"/>
+            </label>
+
+            <label>Bad README
+                <input type="checkbox" onchange="updateComment()" data-idx="3"/>
+            </label>
+
+            <label>Copy/paste of README
+                <input type="checkbox" onchange="updateComment()" data-idx="4"/>
+            </label>
+
+            <label>Repository contains node_modules
+                <input type="checkbox" onchange="updateComment()" data-idx="5"/>
+            </label>
+
+            <label>No video
+                <input type="checkbox" onchange="updateComment()" data-idx="6"/>
+            </label>
+
+            <label>package-lock.json in .gitignore
+                <input type="checkbox" onchange="updateComment()" data-idx="7"/>
+            </label>
+
+            <label>No deployment
+                <input type="checkbox" onchange="updateComment()" data-idx="8"/>
+            </label>
+
+            <label>Multiple import errors
+                <input type="checkbox" onchange="updateComment()" data-idx="9"/>
+            </label>
+        </div>
+
+        <div id="text">
+            <h1>Feedback</h1>
+            <textarea id="feedbackText" rows="33" cols="75"></textarea>
+            <button id="copyBtn" onclick="copy()">Copy</button>
+        </div>
+
+        <div id="moduleComments"></div>
+    </div>
+
+    <script src="github.js"></script>
+    <script src="module01.js"></script>
+    <script src="module02.js"></script>
+    <script src="module03.js"></script>
+    <script src="module04.js"></script>
+    <script src="module05.js"></script>
+    <script src="module06.js"></script>
+    <script src="module09.js"></script>
+    <script src="module10.js"></script>
+    <script src="module11.js"></script>
+    <script src="module12.js"></script>
+    <script src="module13.js"></script>
+    <script src="module14.js"></script>
+    <script src="module17.js"></script>
+    <script src="module18.js"></script>
+    <script src="module19.js"></script>
+    <script src="module20.js"></script>
+    <script src="module21.js"></script>
     <script src="index.js"></script>
-    <script src="introduction.js"></script>
-    <script src="problems.js"></script>
-    <script src="compliments.js"></script>
-    <script src="conclusion.js"></script>
 </body>
 </html>
