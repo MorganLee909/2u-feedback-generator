@@ -53,6 +53,11 @@ Make sure that you reach out to your instructors for help if you need it, they a
             title: "No tests",
             type: "checkbox",
             comment: "Your code does not contain any tests. Be sure to create tests using jest. You should be testing all of the classes, as well as the resulting SVG."
+        },
+        {
+            title: "Missing 'save-to' directory",
+            type: "checkbox",
+            comment: "The directory to which you are saving the newly generated SVGs is not in your GitHub repository. This causes the file creation to fail with an error, because it cannot save to a directory that doesn't exist. This is easily fixed by adding that directory. If you have an empty directory, then git will ignore that directory and it won't be uploaded to GitHub, which is often the cause of this issue. You can fix this by adding a '.gitkeep' file in the directory. This is a hidden file that will make sure that git doesn't ignore the directory. This didn't cost you any points, but it is just a good thing to remember."
         }
     ]
 }

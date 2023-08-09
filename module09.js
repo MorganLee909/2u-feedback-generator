@@ -53,6 +53,16 @@ Best of luck to you!`;
             title: "No contact section",
             type: "checkbox",
             comment: "You need to make sure that the generated README has a contact section that contacts both a mailto link with an email and a link to their GitHub."
+        },
+        {
+            title: "Table of contents doesn't link",
+            type: "checkbox",
+            comment: "While you have a good table of contents, it does not link to the different parts of the README. Make sure that the table of contents works as links."
+        },
+        {
+            title: "No badge",
+            type: "checkbox",
+            comment: "You are missing the required badge for the generated README."
         }
     ]
 }

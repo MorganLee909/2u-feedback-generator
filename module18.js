@@ -63,6 +63,28 @@ Remember to reach out to your instructors if you need any help with this assignm
             comment: "Ensure that any time that you create anything (user, thought, etc.) with a POST request, that the API responds with that thing. This is how the frontend can recieve some of the data created on the backend, such as the ID."
         },
         {
+            title: "GET ALL: Nested array",
+            type: "select",
+            options: [
+                {
+                    title: "Thoughts",
+                    value: "thoughts",
+                    comment: "The route for retrieving all thoughts responds with improperly formatted data. This response should just be an array. You are returning an object which then has a 'thoughts' array nested inside of it. Do not nest this array in an object, just respond with the array."
+                },
+                {
+                    title: "Users",
+                    value: "users",
+                    comment: "The route for retrieving all users responds with improperly formatted data. This response should just be an array. You are returning an object which then has a 'users' array nested inside of it. Do not nest this array in an object, just respond with the array."
+                },
+                {
+                    title: "Both",
+                    value: "both",
+                    comment: "The routes for retrieving all users and all thoughts respond with improperly formatted data. These responses should just be an array. You are returning an object which then has a 'users' or 'thoughts' array nested inside of it. Do not nest these arrays in an object, just respond with the arrays."
+                }
+            ],
+            comment: "The response for getting all thoughts and all users responds with improperly formatted data. Retrieving all objects should simply return an array of those objects. Your route is responding with an object that then contains an array of objects. The array should not be nested in an object and should just be returned by itself."
+        },
+        {
             title: "BONUS completed",
             type: "checkbox",
             comment: "Excellent work on completing the bonus. When a user is deleted, all of their thoughts are also deleted. This helped make up any points that you lost."

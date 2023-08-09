@@ -60,6 +60,11 @@ Be sure to reach out to your instructors if you need any help. That is what they
             title: "Navigation links not working",
             type: "checkbox",
             comment: "The navigation links on the page are not working. When clicking on something in the menu it should take me to that part of the page. This can be done using '#link-to-id' as the href, and an id on the element to link to."
+        },
+        {
+            title: "One project",
+            type: "checkbox",
+            comment: "You need to include more than one project in your portfolio, and the first project should display larger than the others to mark it as the primary thing that you want to display. I understand that you may not have more than one project to display yet, but placeholders are perfectly fine as well. An image of a fake/future project with a title and a link to anywhere is fine."
         }
     ]
 }

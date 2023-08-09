@@ -10,6 +10,8 @@ let module05 = {
                     return `Great work on this assignment ${name}. You created a really well-functioning application using HTML, CSS and JavaScript. Almost everything seems to work really well, with just a few issues.`;
                 case "manyProblems":
                     return `Hey ${name}, you got a good start to this application. It has the basics displayed on the page and some functionality, but there are some issues.`;
+                case "inProgress":
+                    return `Hey ${name}. It appears that you are still working on this assignment. I can see that you have gotten a bit of the code written and are still working on it. Just not everything is there yet. Here are a few suggestions that might help you out on this.`;
             }
         },
 
@@ -21,6 +23,10 @@ let module05 = {
                     return `Again, amazing work. The application you created works really well and shows that you really understand how to implement JavaScript, HTML and CSS to great something amazing. Keep up the great work!`;
                 case "fewProblems":
                     return `Really great work on this one. You showed that you are proficient with JS. Other than those mistakes mentioned above, everything looks great. Keep up the good work!`;
+                case "inProgress":
+                    return `Again, good work so far, and a good job getting started, it just needs some more time spent on it.
+                    
+If you need help, be sure to reach out to your instructors. They are there to help you.`;
             }
         }
     },

@@ -61,6 +61,16 @@ Also remember to reach out to your instructors if you need further help, that is
             title: "Links not working",
             type: "checkbox",
             comment: "Your links are not working for the different sections of your portfolio. When one of them is clicked, it should dispaly a different page containing the necessary information."
+        },
+        {
+            title: "Missing avatar",
+            type: "checkbox",
+            comment: "Your bio is missing either a picture of yourself or an avatar as per the requirements."
+        },
+        {
+            title: "Not enough projects",
+            type: "checkbox",
+            comment: "You need to have 6 of your projects displayed. You may use placeholders if you like, or even repeat some of them, but there needs to be at least 6."
         }
     ]
 }

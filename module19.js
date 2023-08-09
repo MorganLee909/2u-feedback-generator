@@ -10,6 +10,8 @@ let module19 = {
                     return `Good work on this assignment ${name}. You were able to create a working PWA, which, in my opinion is one of the cooler things on the web. Not only is it a website, but a fully installable mobile application!. You have come a really long way since the first days of your course, this assignment is not trivial. Great job getting this working with only a few mistakes.`;
                 case "manyProblems":
                     return `Good work on getting started with this assignment ${name}. I can see that you have put some work into this application. However, there are some problems and some things that need to be fixed or added.`;
+                case "inProgress":
+                    return `Good start on this assignment ${name}. I can see that you are not done with this yet and it still needs some work.`;
                 case "notWorking":
                     return `Hey ${name}, it looks like you got a good start on this assignment, but unfortunately I was unable to get the application to start.`;
             }
@@ -27,6 +29,10 @@ let module19 = {
                     return `Good start on this, you just need to put a bit more work into it in order to get everything up and working properly. This is a tough assignment, getting used to using a PWA can be a challenging task, so good on you for getting this far.
                     
 If you need help, remember to reach out to your instructors, they are there to help you.`;
+                case "inProgress":
+                    return `Again, good start, you just need to spend some more time getting everything up and running. You still got some points just for the submission and also for the quality and good condition of your repository.
+                    
+If you need help moving forward with this and getting this working, don't forget to reach out to your instructors. They are there to help you. Good luck!`;
                 case "notWorking":
                     return `You have a good start here, you just need to put in a bit of time to get things working properly. Make sure you utilize error messages to help you find any bugs.
                     

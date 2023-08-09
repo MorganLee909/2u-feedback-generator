@@ -38,5 +38,9 @@ let gitHub = [
     {
         title: "Multiple import errors",
         comment: "Your code contains multiple errors due to improper importing of other files. You need to make sure that when you import other files with 'require' that the path and filename exactly match the path and filename of the file that you are trying to import. Pay attention to pluralization and capitalization of the files. The program will not run at all if any of your imports are incorrect."
+    },
+    {
+        title: "Uploaded video to GitHub",
+        comment: "Don't upload videos to GitHub. GitHub is built for code and is not meant to be used to hold large files such as video. Use a video sharing service such as Screencastify or YouTube and then just share the link in your README file and the submission."
     }
 ];

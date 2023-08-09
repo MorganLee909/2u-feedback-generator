@@ -32,8 +32,7 @@ Don't forget that you can reach out to your instructors if you need help. They a
                 case "inProgress":
                     return `You were able to still get some points for the submission and your repo quality.
 
-If you need help with this assignment, make sure that you reach out to your instructors, they are there to help. Keep on with this assignment, it takes a lot of work, this is a hard assignment, but it is worth it in the end. Best of luck to you!
-                `;
+If you need help with this assignment, make sure that you reach out to your instructors, they are there to help. Keep on with this assignment, it takes a lot of work, this is a hard assignment, but it is worth it in the end. Best of luck to you!`;
                 case "notWorking":
                     return `You have a good start here, it just needs a bit more work. Don't get discouraged, this is a difficult assignment that many students have trouble with. Just keep working at it and you will get there in no time.
 

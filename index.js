@@ -7,12 +7,24 @@ let generateFeedback = ()=>{
     let comments = "";
     let commentIndex = 1;
 
-    let moduleComments = document.querySelectorAll("#moduleComments input");
+    let moduleComments = document.querySelectorAll("#moduleComments label");
     for(let i = 0; i < moduleComments.length; i++){
-        if(moduleComments[i].checked){
-            comments += `${commentIndex}) ${module.comments[moduleComments[i].getAttribute("data-idx")].comment}\n\n`;
-            commentIndex++;
+        let input = moduleComments[i].children[0];
+        switch(moduleComments[i].getAttribute("data-type")){
+            case "checkbox":
+                if(input.checked){
+                    comments += `${commentIndex}) ${module.comments[input.getAttribute("data-idx")].comment}\n\n`;
+                    commentIndex++;
+                }
+                break;
+            case "select":
+                if(input.value){
+                    comments += `${commentIndex}) ${input.value}\n\n`;
+                    commentIndex++;
+                }
+                break;
         }
+        
     }
     
     let gitHubInputs = document.querySelectorAll("#gitHubComments input");
@@ -55,7 +67,27 @@ let displayCommentOptions = ()=>{
                 input.type = "checkbox";
                 input.onchange = ()=>{updateComment()};
                 input.setAttribute("data-idx", i);
+                label.setAttribute("data-type", "checkbox");
                 label.appendChild(input);
+                break;
+            case "select":
+                let select = document.createElement("select");
+                select.onchange = ()=>{updateComment()};
+                select.setAttribute("data-idx", i);
+                select.selectedIndex = 0;
+                select.onchange = ()=>{updateComment()};
+                label.setAttribute("data-type", "select");
+                label.appendChild(select);
+
+                let option = document.createElement("option");
+                select.appendChild(option);
+
+                for(let j = 0; j < module.comments[i].options.length; j++){
+                    let option = document.createElement("option");
+                    option.value = module.comments[i].options[j].comment;
+                    option.textContent = module.comments[i].options[j].title;
+                    select.appendChild(option);
+                }
                 break;
         }
     }
