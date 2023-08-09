@@ -43,9 +43,33 @@ Remember to reach out to your instructors if you need any help with this assignm
 
     comments: [
         {
-            title: "Thought created, but not added to user",
+            title: "CREATE THOUGHT",
+            type: "select",
+            options: [
+                {
+                    title: "ID not saved to user",
+                    comment: "When a thought is created, the thought is indeed added to the database. However, the thought is not added to the user's 'thoughts' array. This means that there is no association between a thought and a user, so you don't know which user has shared which thoughts."
+                },
+                {
+                    title: "Incorrect response",
+                    comment: "Ensure that any time that you create anything (user, thought, etc.) with a POST request, that the API responds with that thing. This is how the frontend can recieve some of the data created on the backend, such as the ID."
+                }
+            ]
+        },
+        {
+            title: "GET ALL THOUGHTS",
+            type: "select",
+            options: [
+                {
+                    title: "Empty object response",
+                    comment: "The route for getting all thoughts returns an empty object"
+                }
+            ]
+        },
+        {
+            title: "No friends routes",
             type: "checkbox",
-            comment: "When a thought is created, the thought is indeed added to the database. However, the thought is not added to the user's 'thoughts' array. This means that there is no association between a thought and a user, so you don't know which user has shared which thoughts."
+            comment: "Your API doesn't contain any routes for creating/deleting friends"
         },
         {
             title: "Association created through username",
@@ -53,36 +77,43 @@ Remember to reach out to your instructors if you need any help with this assignm
             comment: "When creating a thought, you are using the username of the user to find and create the association with the user. You should always use the ID for this, never the username. The ID is the unique identifier for the user."
         },
         {
-            title: "Deleted thought not removed from user",
-            type: "checkbox",
-            comment: "When a thought is deleted, the ID of that thought is not removed from the user's 'thoughts' array. This can cause errors when someone tries to retrieve the thoughts of a user, but those thoughts have already been deleted."
-        },
-        {
-            title: "CREATE THOUGHT: incorrect response",
-            type: "checkbox",
-            comment: "Ensure that any time that you create anything (user, thought, etc.) with a POST request, that the API responds with that thing. This is how the frontend can recieve some of the data created on the backend, such as the ID."
-        },
-        {
             title: "GET ALL: Nested array",
             type: "select",
             options: [
                 {
                     title: "Thoughts",
-                    value: "thoughts",
                     comment: "The route for retrieving all thoughts responds with improperly formatted data. This response should just be an array. You are returning an object which then has a 'thoughts' array nested inside of it. Do not nest this array in an object, just respond with the array."
                 },
                 {
                     title: "Users",
-                    value: "users",
                     comment: "The route for retrieving all users responds with improperly formatted data. This response should just be an array. You are returning an object which then has a 'users' array nested inside of it. Do not nest this array in an object, just respond with the array."
                 },
                 {
                     title: "Both",
-                    value: "both",
                     comment: "The routes for retrieving all users and all thoughts respond with improperly formatted data. These responses should just be an array. You are returning an object which then has a 'users' or 'thoughts' array nested inside of it. Do not nest these arrays in an object, just respond with the arrays."
                 }
             ],
             comment: "The response for getting all thoughts and all users responds with improperly formatted data. Retrieving all objects should simply return an array of those objects. Your route is responding with an object that then contains an array of objects. The array should not be nested in an object and should just be returned by itself."
+        },
+        {
+            title: "DELETE THOUGHT",
+            type: "select",
+            options: [
+                {
+                    title: "ID remains on user",
+                    comment: "When a thought is deleted, the ID of that thought is not removed from the user's 'thoughts' array. This can cause errors when someone tries to retrieve the thoughts of a user, but those thoughts have already been deleted."
+                }
+            ]
+        },
+        {
+            title: "DELETE REACTION",
+            type: "select",
+            options: [
+                {
+                    title: "Wrong route",
+                    comment: "You have are using an incorrect route for deleting reactions. It is very import to maintain the correct routes in an API. The correct route to delete a reaction would be: DELETE '/api/thoughts/:thoughtId/reactions/:reactionId'."
+                }
+            ]
         },
         {
             title: "BONUS completed",
