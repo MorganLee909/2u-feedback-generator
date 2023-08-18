@@ -7,7 +7,7 @@ let module19 = {
                 case "almostPerfect":
                     return `Amazing work on this one ${name}. You did a really great job creating a working PWA that can be downloaded similarly to native applications, even on mobile! This is a tough assignment, so it is really amazing what you were able to accomplish. Just a few notes:`;
                 case "fewProblems":
-                    return `Good work on this assignment ${name}. You were able to create a working PWA, which, in my opinion is one of the cooler things on the web. Not only is it a website, but a fully installable mobile application!. You have come a really long way since the first days of your course, this assignment is not trivial. Great job getting this working with only a few mistakes.`;
+                    return `Good work on this assignment ${name}. You were able to create a working PWA, which, in my opinion is one of the cooler things on the web. Not only is it a website, but a fully installable mobile application!. You have come a really long way since the first days of your course, this assignment is not trivial. Great job getting this working with only a few issues.`;
                 case "manyProblems":
                     return `Good work on getting started with this assignment ${name}. I can see that you have put some work into this application. However, there are some problems and some things that need to be fixed or added.`;
                 case "inProgress":

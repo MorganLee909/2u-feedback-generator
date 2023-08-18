@@ -13,7 +13,7 @@ let module11 = {
                 case "inProgress":
                     return `Hey ${name}. It looks like this project is still in progress and not yet in a working state. You were able to still get some points just for the submission and the quality of your repo.`;
                 case "notWorking":
-                    return `You have a good start on this assignment ${name}, but unfortunately I was unable to start up the application in order to test it due to some errors.`;
+                    return `You have a good start on this assignment ${name}, but unfortunately I was unable to properly run the application in order to test it due to some errors.`;
             }
         },
 
@@ -33,6 +33,11 @@ If you need help, make sure that you reach out to your instructors, that is what
                     return `You have a good start here, just keep working at it and you will have it completed in no time.
                     
 Don't forget to reach out to your instructors if you need any help, that is what they are there for. Good luck!`;
+                case "notWorking": return `Again, you have a good start here, you just need to fix some bugs and get somethings working properly so that the application will work as intended. Getting the hang of Node and Express can be a real challenge, so don't worry if you are having trouble right now, that just means that you are like everybody else. You will master it over time with practice and just experimenting with things.
+                
+If you need help, make sure that you reach out to your instructors. They are there to help you.
+
+Good luck!`;
             }
         }
     },

@@ -75,16 +75,19 @@
         #gitHubComments, #moduleComments{
             display: flex;
             flex-direction: column;
-        }
-        #gitHubComments{
-            align-items: flex-end;
-        }
-        #moduleComments{
             align-items: flex-start;
         }
-        #moduleComments label{
+        #gitHubComments label, #moduleComments label{
             display: flex;
             flex-direction: row-reverse;
+        }
+        #feedbackEntry{
+            display: flex;
+            flex-direction: column;
+        }
+        h3{
+            margin-top: 15px;
+            color: green;
         }
     </style>
 </head>
@@ -112,73 +115,77 @@
         <button class="optionButton" onclick="chooseModule(21)">Module 21</button>
     </div>
 
-    <div id="chooseQuality" class="option" style="display:none">
-        <h1>Choose Quality</h1>
-        <button class="optionButton" onclick="chooseQuality('perfect')">Perfect</button>
-        <button class="optionButton" onclick="chooseQuality('almostPerfect')">Almost Perfect</button>
-        <button class="optionButton" onclick="chooseQuality('fewProblems')">Few Problems</button>
-        <button class="optionButton" onclick="chooseQuality('manyProblems')">Many Problems</button>
-        <button class="optionButton" onclick="chooseQuality('inProgress')">In Progress</button>
-        <button class="optionButton" onclick="chooseQuality('notWorking')">Not Working</button>
-    </div>
-
-    <form id="studentName" class="option" style="display:none" onsubmit="chooseName()">
-        <h1>Student Name:</h1>
-        <input id="nameInput" type="text"/>
-        <input type="submit" value="Submit"/>
-    </form>
-
-    <form id="studentGrade" class="option" style="display:none" onsubmit="chooseGrade()">
-        <h1>Enter Grade:</h1>
-        <input id="gradeInput" type="number" min="0" max="100" step="1"/>
-        <input type="Submit" value="Submit"/>
-    </form>
-
     <div id="feedback" class="option" style="display:none">
-        <div id="gitHubComments">
-            <label>Small commit history
-                <input type="checkbox" onchange="updateComment()" data-idx="0"/>
+        <div id="feedbackEntry">
+            <label>Student Name
+                <input id="nameInput" type="text" onkeyup="updateText()"/>
             </label>
 
-            <label>Bad repo name
-                <input type="checkbox" onchange="updateComment()" data-idx="1"/>
+            <label>Grade
+                <input id="gradeInput" type="number" min="0" max="100" step="1" onkeyup="updateText()"/>
             </label>
 
-            <label>Contains develop directory
-                <input type="checkbox" onchange="updateComment()" data-idx="2"/>
+            <label>Quality
+                <select onchange="updateQuality(this)">
+                    <option value="perfect" default>Perfect</option>
+                    <option value="almostPerfect">Almost Perfect</option>
+                    <option value="fewProblems">Few Problems</option>
+                    <option value="manyProblems">Many Problems</option>
+                    <option value="inProgress">In Progress</option>
+                    <option value="notWorking">Not Working</option>
+                </select>
             </label>
+        
+            <h3>Common Comments</h3>
 
-            <label>Bad README
-                <input type="checkbox" onchange="updateComment()" data-idx="3"/>
-            </label>
+            <div id="gitHubComments">
+                <label>Small commit history
+                    <input type="checkbox" onchange="updateComment()" data-idx="0"/>
+                </label>
 
-            <label>Copy/paste of README
-                <input type="checkbox" onchange="updateComment()" data-idx="4"/>
-            </label>
+                <label>Bad repo name
+                    <input type="checkbox" onchange="updateComment()" data-idx="1"/>
+                </label>
 
-            <label>Repository contains node_modules
-                <input type="checkbox" onchange="updateComment()" data-idx="5"/>
-            </label>
+                <label>Contains develop directory
+                    <input type="checkbox" onchange="updateComment()" data-idx="2"/>
+                </label>
 
-            <label>No video
-                <input type="checkbox" onchange="updateComment()" data-idx="6"/>
-            </label>
+                <label>Bad README
+                    <input type="checkbox" onchange="updateComment()" data-idx="3"/>
+                </label>
 
-            <label>package-lock.json in .gitignore
-                <input type="checkbox" onchange="updateComment()" data-idx="7"/>
-            </label>
+                <label>Copy/paste of README
+                    <input type="checkbox" onchange="updateComment()" data-idx="4"/>
+                </label>
 
-            <label>No deployment
-                <input type="checkbox" onchange="updateComment()" data-idx="8"/>
-            </label>
+                <label>Repository contains node_modules
+                    <input type="checkbox" onchange="updateComment()" data-idx="5"/>
+                </label>
 
-            <label>Multiple import errors
-                <input type="checkbox" onchange="updateComment()" data-idx="9"/>
-            </label>
+                <label>No video
+                    <input type="checkbox" onchange="updateComment()" data-idx="6"/>
+                </label>
 
-            <label>Uploaded video to GitHub
-                <input type="checkbox" onchange="updateComment()" data-idx="10"/>
-            </label>
+                <label>package-lock.json in .gitignore
+                    <input type="checkbox" onchange="updateComment()" data-idx="7"/>
+                </label>
+
+                <label>No deployment
+                    <input type="checkbox" onchange="updateComment()" data-idx="8"/>
+                </label>
+
+                <label>Multiple import errors
+                    <input type="checkbox" onchange="updateComment()" data-idx="9"/>
+                </label>
+
+                <label>Uploaded video to GitHub
+                    <input type="checkbox" onchange="updateComment()" data-idx="10"/>
+                </label>
+            </div>
+
+            <h3>Module Comments</h3>
+            <div id="moduleComments"></div>
         </div>
 
         <div id="text">
@@ -186,8 +193,6 @@
             <textarea id="feedbackText" rows="33" cols="75"></textarea>
             <button id="copyBtn" onclick="copy()">Copy</button>
         </div>
-
-        <div id="moduleComments"></div>
     </div>
 
     <script src="github.js"></script>

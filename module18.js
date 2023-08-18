@@ -53,6 +53,10 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "Incorrect response",
                     comment: "Ensure that any time that you create anything (user, thought, etc.) with a POST request, that the API responds with that thing. This is how the frontend can recieve some of the data created on the backend, such as the ID."
+                },
+                {
+                    title: "User ID in URL",
+                    comment: "You are using the incorrect route for thought creation. It should be POST '/api/thoughts'. The user ID should be part of the body of the request because it is a property of the thought. With a proper REST API, the ID of something is always preceded by what it is. '/thoughts/:thoughtId' for example. So passing the user ID in the URL doesn't work in this case."
                 }
             ]
         },
@@ -63,6 +67,16 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "Empty object response",
                     comment: "The route for getting all thoughts returns an empty object"
+                }
+            ]
+        },
+        {
+            title: "GET SINGLE USER",
+            type: "select",
+            options: [
+                {
+                    title: "User nested in array",
+                    comment: "When retrieving a single user, the response should be just an object containing the data for that user. You are responding with the user, but that user is nested within an array that should be there."
                 }
             ]
         },

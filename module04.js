@@ -50,6 +50,11 @@ Make sure that you reach out to your instructors if you need any help with this 
             title: "No timer",
             type: "checkbox",
             comment: "Your quiz does not contain a timer. Once the game starts, there should be a timer on the page that is counting down every second until the game ends at 0. Additionaly, time should be subtracted from the timer for every incorrect answer."
+        },
+        {
+            title: "Start quiz button",
+            type: "checkbox",
+            comment: "There should be a button on the main page to start the quiz. This allows the user to decide when they want to start the quiz rather than just starting it right off the bat."
         }
     ]
 }

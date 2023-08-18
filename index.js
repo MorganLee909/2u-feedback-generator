@@ -1,7 +1,7 @@
 let module = {};
-let quality = "";
-let name = "";
-let grade = 0;
+let quality = "perfect";
+let nameInput = document.getElementById("nameInput");
+let gradeInput = document.getElementById("gradeInput");
 
 let generateFeedback = ()=>{
     let comments = "";
@@ -23,8 +23,7 @@ let generateFeedback = ()=>{
                     commentIndex++;
                 }
                 break;
-        }
-        
+        } 
     }
     
     let gitHubInputs = document.querySelectorAll("#gitHubComments input");
@@ -36,13 +35,13 @@ let generateFeedback = ()=>{
     }
 
     if(comments !== "") comments = comments.substring(0, comments.length - 2);
-    return `${module.text.introduction(quality, name)}
+    return `${module.text.introduction(quality, nameInput.value)}
 
 ${comments}
 
 ${module.text.conclusion(quality)}
 
-${grade}/100
+${gradeInput.value}/100
 -Central grader, LM`;
 }
 
@@ -114,34 +113,8 @@ let chooseModule = (num)=>{
         case 21: module = module21; break;
     }
 
+    updateText();
     document.getElementById("chooseModule").style.display = "none";
-    document.getElementById("chooseQuality").style.display = "flex";
-}
-
-let chooseQuality = (qual)=>{
-    quality = qual;
-
-    document.getElementById("chooseQuality").style.display = "none";
-    document.getElementById("studentName").style.display = "flex";
-    document.getElementById("nameInput").focus();
-}
-
-let chooseName = ()=>{
-    event.preventDefault();
-    name = document.getElementById("nameInput").value;
-
-    document.getElementById("studentName").style.display = "none";
-    document.getElementById("studentGrade").style.display = "flex";
-    document.getElementById("gradeInput").focus();
-}
-
-let chooseGrade = ()=>{
-    event.preventDefault();
-    grade = Number(document.getElementById("gradeInput").value);
-
-    displayCommentOptions();
-    document.getElementById("feedbackText").value = generateFeedback();
-    document.getElementById("studentGrade").style.display = "none";
     document.getElementById("feedback").style.display = "flex";
 }
 
@@ -165,4 +138,13 @@ let reset = ()=>{
 let copy = ()=>{
     let text = document.getElementById("feedbackText").value;
     navigator.clipboard.writeText(text);
+}
+
+let updateText = ()=>{
+    document.getElementById("feedbackText").value = generateFeedback();
+}
+
+const updateQuality = (select)=>{
+    quality = select.value;
+    updateText();
 }
