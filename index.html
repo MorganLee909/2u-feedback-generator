@@ -10,8 +10,13 @@
             box-sizing: border-box;
         }
         body{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             background: black;
             color: white;
+            height: 100vh;
+            width: 100vw;
         }
         #reset{
             position: absolute;
@@ -29,13 +34,8 @@
         #reset:active{
             background: #828282;
         }
-        .option{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        input{
-            font-size: 26px;
+        input, select{
+            font-size: 22px;
         }
         #copyBtn{
             padding: 15px;
@@ -50,12 +50,6 @@
         }
         #copyBtn:active{
             background: #828282;
-        }
-        #feedback{
-            flex-direction: row;
-            justify-content: space-around;
-            height: 100vh;
-            width: 100vw;
         }
         #gitHubComments, #moduleComments{
             display: flex;
@@ -79,113 +73,111 @@
 <body>
     <button id="reset" onclick="reset()">Reset</button>
 
-    <div id="feedback" class="option">
-        <div id="feedbackEntry">
-            <label>Student Name
-                <input id="nameInput" type="text" onkeyup="updateText()"/>
+    <div id="feedbackEntry">
+        <label>Student Name
+            <input id="nameInput" type="text" onkeyup="updateText()"/>
+        </label>
+
+        <label>Grade
+            <input id="gradeInput" type="number" min="0" max="100" step="1" onkeyup="updateText()"/>
+        </label>
+
+        <label>Course
+            <select id="course" onchange="changeCourse()">
+                <option value="fsf">Full Stack Flex</option>
+                <option value="fe">Front-End</option>
+            </select>
+        </label>
+
+        <label>Module
+            <select id="module" onchange="changeCourse()">
+                <option value="01">Module 01</option>
+                <option value="02">Module 02</option>
+                <option value="03">Module 03</option>
+                <option value="04">Module 04</option>
+                <option value="05">Module 05</option>
+                <option value="06">Module 06</option>
+                <option value="09">Module 09</option>
+                <option value="10">Module 10</option>
+                <option value="11">Module 11</option>
+                <option value="12">Module 12</option>
+                <option value="13">Module 13</option>
+                <option value="14">Module 14</option>
+                <option value="17">Module 17</option>
+                <option value="18">Module 18</option>
+                <option value="19">Module 19</option>
+                <option value="20">Module 20</option>
+                <option value="21">Module 21</option>
+            </select>
+        </label>
+
+        <label>Quality
+            <select id="qualityInput" onchange="updateText()">
+                <option value="perfect" default>Perfect</option>
+                <option value="almostPerfect">Almost Perfect</option>
+                <option value="fewProblems">Few Problems</option>
+                <option value="manyProblems">Many Problems</option>
+                <option value="inProgress">In Progress</option>
+                <option value="notWorking">Not Working</option>
+            </select>
+        </label>
+    
+        <h3>Common Comments</h3>
+
+        <div id="gitHubComments">
+            <label>Small commit history
+                <input type="checkbox" onchange="updateComment()" data-idx="0"/>
             </label>
 
-            <label>Grade
-                <input id="gradeInput" type="number" min="0" max="100" step="1" onkeyup="updateText()"/>
+            <label>Bad repo name
+                <input type="checkbox" onchange="updateComment()" data-idx="1"/>
             </label>
 
-            <label>Course
-                <select id="course" onchange="changeCourse()">
-                    <option value="fsf">Full Stack Flex</option>
-                    <option value="fe">Front-End</option>
-                </select>
+            <label>Contains develop directory
+                <input type="checkbox" onchange="updateComment()" data-idx="2"/>
             </label>
 
-            <label>Module
-                <select id="module" onchange="changeCourse()">
-                    <option value="01">Module 01</option>
-                    <option value="02">Module 02</option>
-                    <option value="03">Module 03</option>
-                    <option value="04">Module 04</option>
-                    <option value="05">Module 05</option>
-                    <option value="06">Module 06</option>
-                    <option value="09">Module 09</option>
-                    <option value="10">Module 10</option>
-                    <option value="11">Module 11</option>
-                    <option value="12">Module 12</option>
-                    <option value="13">Module 13</option>
-                    <option value="14">Module 14</option>
-                    <option value="17">Module 17</option>
-                    <option value="18">Module 18</option>
-                    <option value="19">Module 19</option>
-                    <option value="20">Module 20</option>
-                    <option value="21">Module 21</option>
-                </select>
+            <label>Bad README
+                <input type="checkbox" onchange="updateComment()" data-idx="3"/>
             </label>
 
-            <label>Quality
-                <select id="qualityInput" onchange="updateText()">
-                    <option value="perfect" default>Perfect</option>
-                    <option value="almostPerfect">Almost Perfect</option>
-                    <option value="fewProblems">Few Problems</option>
-                    <option value="manyProblems">Many Problems</option>
-                    <option value="inProgress">In Progress</option>
-                    <option value="notWorking">Not Working</option>
-                </select>
+            <label>Copy/paste of README
+                <input type="checkbox" onchange="updateComment()" data-idx="4"/>
             </label>
-        
-            <h3>Common Comments</h3>
 
-            <div id="gitHubComments">
-                <label>Small commit history
-                    <input type="checkbox" onchange="updateComment()" data-idx="0"/>
-                </label>
+            <label>Repository contains node_modules
+                <input type="checkbox" onchange="updateComment()" data-idx="5"/>
+            </label>
 
-                <label>Bad repo name
-                    <input type="checkbox" onchange="updateComment()" data-idx="1"/>
-                </label>
+            <label>No video
+                <input type="checkbox" onchange="updateComment()" data-idx="6"/>
+            </label>
 
-                <label>Contains develop directory
-                    <input type="checkbox" onchange="updateComment()" data-idx="2"/>
-                </label>
+            <label>package-lock.json in .gitignore
+                <input type="checkbox" onchange="updateComment()" data-idx="7"/>
+            </label>
 
-                <label>Bad README
-                    <input type="checkbox" onchange="updateComment()" data-idx="3"/>
-                </label>
+            <label>No deployment
+                <input type="checkbox" onchange="updateComment()" data-idx="8"/>
+            </label>
 
-                <label>Copy/paste of README
-                    <input type="checkbox" onchange="updateComment()" data-idx="4"/>
-                </label>
+            <label>Multiple import errors
+                <input type="checkbox" onchange="updateComment()" data-idx="9"/>
+            </label>
 
-                <label>Repository contains node_modules
-                    <input type="checkbox" onchange="updateComment()" data-idx="5"/>
-                </label>
-
-                <label>No video
-                    <input type="checkbox" onchange="updateComment()" data-idx="6"/>
-                </label>
-
-                <label>package-lock.json in .gitignore
-                    <input type="checkbox" onchange="updateComment()" data-idx="7"/>
-                </label>
-
-                <label>No deployment
-                    <input type="checkbox" onchange="updateComment()" data-idx="8"/>
-                </label>
-
-                <label>Multiple import errors
-                    <input type="checkbox" onchange="updateComment()" data-idx="9"/>
-                </label>
-
-                <label>Uploaded video to GitHub
-                    <input type="checkbox" onchange="updateComment()" data-idx="10"/>
-                </label>
-            </div>
-
-            <h3>Module Comments</h3>
-            <div id="moduleComments"></div>
+            <label>Uploaded video to GitHub
+                <input type="checkbox" onchange="updateComment()" data-idx="10"/>
+            </label>
         </div>
 
-        <div id="text">
-            <h1>Feedback</h1>
-            <textarea id="feedbackText" rows="33" cols="75"></textarea>
-            <button id="copyBtn" onclick="copy()">Copy</button>
-        </div>
+        <h3>Module Comments</h3>
+        <div id="moduleComments"></div>
+    </div>
+
+    <div id="text">
+        <h1>Feedback</h1>
+        <textarea id="feedbackText" rows="33" cols="75"></textarea>
+        <button id="copyBtn" onclick="copy()">Copy</button>
     </div>
 
     <script src="github.js"></script>
