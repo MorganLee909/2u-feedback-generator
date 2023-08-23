@@ -1,7 +1,8 @@
 let qualityInput = document.getElementById("qualityInput");
 let nameInput = document.getElementById("nameInput");
 let gradeInput = document.getElementById("gradeInput");
-let moduleComments = document.querySelector("#moduleComments").children;
+let moduleComments = document.getElementById("moduleComments").children;
+let feedbackText = document.getElementById("feedbackText")
 
 let generateFeedback = ()=>{
     let module = getModule();
@@ -126,7 +127,7 @@ let reset = ()=>{
 
     document.getElementById("nameInput").value = "";
     document.getElementById("gradeInput").value = "";
-    document.getElementById("feedbackText").value = "";
+    feedbackText.value = "";
 
     let options = document.querySelectorAll(".option");
     for(let i = 0; i < options.length; i++){
@@ -136,10 +137,9 @@ let reset = ()=>{
 }
 
 let copy = ()=>{
-    let text = document.getElementById("feedbackText").value;
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(feedbackText.value);
 }
 
 let updateText = ()=>{
-    document.getElementById("feedbackText").value = generateFeedback();
+    feedbackText.value = generateFeedback();
 }
