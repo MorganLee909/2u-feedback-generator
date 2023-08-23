@@ -1,13 +1,13 @@
-let module = {};
-let quality = "perfect";
+let qualityInput = document.getElementById("qualityInput");
 let nameInput = document.getElementById("nameInput");
 let gradeInput = document.getElementById("gradeInput");
+let moduleComments = document.querySelector("#moduleComments").children;
 
 let generateFeedback = ()=>{
+    let module = getModule();
     let comments = "";
     let commentIndex = 1;
 
-    let moduleComments = document.querySelectorAll("#moduleComments label");
     for(let i = 0; i < moduleComments.length; i++){
         let input = moduleComments[i].children[0];
         switch(moduleComments[i].getAttribute("data-type")){
@@ -35,21 +35,22 @@ let generateFeedback = ()=>{
     }
 
     if(comments !== "") comments = comments.substring(0, comments.length - 2);
-    return `${module.text.introduction(quality, nameInput.value)}
+    return `${module.text.introduction(qualityInput.value, nameInput.value)}
 
 ${comments}
 
-${module.text.conclusion(quality)}
+${module.text.conclusion(qualityInput.value)}
 
 ${gradeInput.value}/100
 -Central grader, LM`;
 }
 
-let updateComment = ()=>{
-    document.getElementById("feedbackText").value = generateFeedback();
+const changeCourse = ()=>{
+    displayCommentOptions(getModule());
+    updateText();
 }
 
-let displayCommentOptions = ()=>{
+let displayCommentOptions = (module)=>{
     let container = document.getElementById("moduleComments");
     while(container.children.length > 0){
         container.removeChild(container.firstChild);
@@ -64,17 +65,17 @@ let displayCommentOptions = ()=>{
             case "checkbox":
                 let input = document.createElement("input");
                 input.type = "checkbox";
-                input.onchange = ()=>{updateComment()};
+                input.onchange = ()=>{updateText()};
                 input.setAttribute("data-idx", i);
                 label.setAttribute("data-type", "checkbox");
                 label.appendChild(input);
                 break;
             case "select":
                 let select = document.createElement("select");
-                select.onchange = ()=>{updateComment()};
+                select.onchange = ()=>{updateText()};
                 select.setAttribute("data-idx", i);
                 select.selectedIndex = 0;
-                select.onchange = ()=>{updateComment()};
+                select.onchange = ()=>{updateText()};
                 label.setAttribute("data-type", "select");
                 label.appendChild(select);
 
@@ -92,30 +93,29 @@ let displayCommentOptions = ()=>{
     }
 }
 
-let chooseModule = (num)=>{
-    switch(num){
-        case 1: module = module01; break;
-        case 2: module = module02; break;
-        case 3: module = module03; break;
-        case 4: module = module04; break;
-        case 5: module = module05; break;
-        case 6: module = module06; break;
-        case 9: module = module09; break;
-        case 10: module = module10; break;
-        case 11: module = module11; break;
-        case 12: module = module12; break;
-        case 13: module = module13; break;
-        case 14: module = module14; break;
-        case 17: module = module17; break;
-        case 18: module = module18; break;
-        case 19: module = module19; break;
-        case 20: module = module20; break;
-        case 21: module = module21; break;
-    }
+const getModule = ()=>{
+    let module = `${document.getElementById("course").value}${document.getElementById("module").value}`;
 
-    updateText();
-    document.getElementById("chooseModule").style.display = "none";
-    document.getElementById("feedback").style.display = "flex";
+    switch(module){
+        case "fsf01": return module01;
+        case "fsf02": return module02;
+        case "fsf03": return module03;
+        case "fsf04": return module04;
+        case "fsf05": return module05;
+        case "fsf06": return module06;
+        case "fsf09": return module09;
+        case "fsf10": return module10;
+        case "fsf11": return module11;
+        case "fsf12": return module12;
+        case "fsf13": return module13;
+        case "fsf14": return module14;
+        case "fsf17": return module17;
+        case "fsf18": return module18;
+        case "fsf19": return module19;
+        case "fsf20": return module20;
+        case "fsf21": return module21;
+        case "fe04": return moduleFE04;
+    }
 }
 
 let reset = ()=>{
@@ -142,9 +142,4 @@ let copy = ()=>{
 
 let updateText = ()=>{
     document.getElementById("feedbackText").value = generateFeedback();
-}
-
-const updateQuality = (select)=>{
-    quality = select.value;
-    updateText();
 }

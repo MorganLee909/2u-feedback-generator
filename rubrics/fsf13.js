@@ -43,9 +43,58 @@ Remember to reach out to your instructors if you need help with anything, that i
 
     comments: [
         {
-            title: "Error on delete category",
-            type: "checkbox",
-            comment: "When trying to delete a category, the route will sometimes return 'SequelizeForeignKeyConstraintError' and does not delete the category. The reason for this is that Sequelize detects that the category is required by a Product, and prevents its deletion in order to prevent more serious errors later on. the simple solution for this is to add 'allowNull: true' to the category_id property on the Product model. This allows the category to be null so that it doesn't throw errors when deleting."
+            title: "GET SINGLE PRODUCT",
+            type: "select",
+            options: [
+                {
+                    title: "Hangs",
+                    comment: "The route for retrieving a single product just hangs, waiting for a response and never displaying the product."
+                },
+                {
+                    title: "SequelizeEagerLoadingError",
+                    comment: "When trying to get a single product, I am receiving a 'SequelizeEagerLoadingError'. This is usually caused by having something wrong with associations between different models."
+                }
+            ]
+        },
+        {
+            title: "GET SINGLE TAG",
+            type: "select",
+            options: [
+                {
+                    title: "Hangs",
+                    comment: "The route for retrieving a single tag just hangs, waiting for a response and never displaying the tag."
+                }
+            ]
+        },
+        {
+            title: "CREATE TAG",
+            type: "select",
+            options: [
+                {
+                    title: "Hangs/doesn't create",
+                    comment: "When trying to create a tag, the route hangs and never sends a response. The tag is also never created in the database."
+                }
+            ]
+        },
+        {
+            title: "UPDATE TAG",
+            type: "select",
+            options: [
+                {
+                    title: "Hangs/doesn't update",
+                    comment: "when trying to update a tag, the route hangs and never sends a response. The tag is also never updated in the datbase."
+                }
+            ]
+        },
+        {
+            title: "DELETE CATEGORY",
+            type: "select",
+            options: [
+                {
+                    title: "SequelizeForeignKeyConstraintError",
+                    comment: "When trying to delete a category, the route will sometimes return 'SequelizeForeignKeyConstraintError' and does not delete the category. The reason for this is that Sequelize detects that the category is required by a Product, and prevents its deletion in order to prevent more serious errors later on. the simple solution for this is to add 'allowNull: true' to the category_id property on the Product model. This allows the category to be null so that it doesn't throw errors when deleting."
+                }
+            ]
         }
     ]
 }

@@ -57,6 +57,38 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "User ID in URL",
                     comment: "You are using the incorrect route for thought creation. It should be POST '/api/thoughts'. The user ID should be part of the body of the request because it is a property of the thought. With a proper REST API, the ID of something is always preceded by what it is. '/thoughts/:thoughtId' for example. So passing the user ID in the URL doesn't work in this case."
+                },
+                {
+                    title: "No error, no thought",
+                    comment: "Creating a user thought is not working. I am not receiving back any errors, but the thought is not created in the database."
+                }
+            ]
+        },
+        {
+            title: "CREATE REACTION",
+            type: "select",
+            options: [
+                {
+                    title: "No error, no reaction",
+                    comment: "Creating a  reaction to a thought is not working. I am not receiving back any errors, but the reaction is not added to the thought in the database."
+                }
+            ]
+        },
+        {
+            title: "CREATE FRIEND",
+            type: "select",
+            options: [
+                {
+                    title: "Wrong route",
+                    comment: "You have an incorrect route for adding a friend to a user. The correct route should be: POST '/api/users/:userId/friends/:friendId'. You need to make sure that you have both the user and the friend ID's so that you can add the correct friend to the correct user. Also, make sure that you pay attention to pluralization as that is a common mistake."
+                },
+                {
+                    title: "PUT",
+                    comment: "You are creating friends using a PUT request. This should be a POST request be we are not just adding a data point but create a new association."
+                },
+                {
+                    title: "No error, no friend",
+                    comment: "Adding a friend to a user is not working. I am not receiving back any errors, but the user is not added to the friends list of the other user in the database."
                 }
             ]
         },
@@ -81,16 +113,6 @@ Remember to reach out to your instructors if you need any help with this assignm
             ]
         },
         {
-            title: "No friends routes",
-            type: "checkbox",
-            comment: "Your API doesn't contain any routes for creating/deleting friends"
-        },
-        {
-            title: "Association created through username",
-            type: "checkbox",
-            comment: "When creating a thought, you are using the username of the user to find and create the association with the user. You should always use the ID for this, never the username. The ID is the unique identifier for the user."
-        },
-        {
             title: "GET ALL: Nested array",
             type: "select",
             options: [
@@ -108,6 +130,36 @@ Remember to reach out to your instructors if you need any help with this assignm
                 }
             ],
             comment: "The response for getting all thoughts and all users responds with improperly formatted data. Retrieving all objects should simply return an array of those objects. Your route is responding with an object that then contains an array of objects. The array should not be nested in an object and should just be returned by itself."
+        },
+        {
+            title: "UPDATE USER",
+            type: "select",
+            options: [
+                {
+                    title: "No route",
+                    comment: "You don't have any route for updating the data on a user."
+                }
+            ]
+        },
+        {
+            title: "UPDATE THOUGHT",
+            type: "select",
+            options: [
+                {
+                    title: "Not working",
+                    comment: "Updating thoughts is not working. After making a PUT request for thoughts, the data in the database is unchanged."
+                }
+            ]
+        },
+        {
+            title: "DELETE USER",
+            type: "select",
+            options: [
+                {
+                    title: "No route",
+                    comment: "You don't have any route for deleting users."
+                }
+            ]
         },
         {
             title: "DELETE THOUGHT",
@@ -128,6 +180,26 @@ Remember to reach out to your instructors if you need any help with this assignm
                     comment: "You have are using an incorrect route for deleting reactions. It is very import to maintain the correct routes in an API. The correct route to delete a reaction would be: DELETE '/api/thoughts/:thoughtId/reactions/:reactionId'."
                 }
             ]
+        },
+        {
+            title: "No friends routes",
+            type: "checkbox",
+            comment: "Your API doesn't contain any routes for creating/deleting friends"
+        },
+        {
+            title: "No reaction routes",
+            type: "checkbox",
+            comment: "Your API doesn't contain any routes for creating/deleting reactions to thoughts"
+        },
+        {
+            title: "Association created through username",
+            type: "checkbox",
+            comment: "When creating a thought, you are using the username of the user to find and create the association with the user. You should always use the ID for this, never the username. The ID is the unique identifier for the user."
+        },
+        {
+            title: "Controllers not separated",
+            type: "checkbox",
+            comment: "Your logic needs to be separted from your routes. The routes should be defined in the 'routes' directory which then calls the functions that are defined in the 'controllers' directory."
         },
         {
             title: "BONUS completed",

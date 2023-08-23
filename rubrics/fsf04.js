@@ -55,6 +55,11 @@ Make sure that you reach out to your instructors if you need any help with this 
             title: "Start quiz button",
             type: "checkbox",
             comment: "There should be a button on the main page to start the quiz. This allows the user to decide when they want to start the quiz rather than just starting it right off the bat."
+        },
+        {
+            title: "Continues after timer",
+            type: "checkbox",
+            comment: "After the timer reaches 0, the quiz does not end and you can still continue as normal."
         }
     ]
 }

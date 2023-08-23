@@ -10,6 +10,8 @@ let module21 = {
                     return `Good work on this assignment ${name}. You have a really good application for searching and saving books. Most everything works exactly as expected with only some small issues.`
                 case "manyProblems":
                     return `Hey ${name}. Good job getting this project working. This is probably the most difficult assignment of the course, so you should be really proud that you got this working. There are some issues with it that need to be fixed however.`;
+                case "inProgress": 
+                    return `Great work so far ${name}. I can see that this is still a work in progress, but you have taken some pretty good steps towards creating a fully functional MERN application with GraphQL. This is a pretty tough one, so great work on what you have so far.`;
                 case "notWorking":
                     return `Hey ${name}, unfortunately I was unable to get the application started due to a number of errors. I can see that you have put a good bit of work in and you did some things very well, but the application just won't start for me.`;
             }
@@ -25,6 +27,10 @@ let module21 = {
                     return `Again, really good job on this. This is a very challenging assignment that many students have difficulty with. However, you were able to create a really good working application with GraphQL and the Apollo server. You should be really proud of how much you have accomplished now. Best of luck to you!`;
                 case "manyProblems":
                     return `You got a good start on this assignment, there are just a few things that need fixing. Don't be discouraged, this is a really difficult assignment. Good luck and keep up the good work.`;
+                case "inProgress":
+                    return `Keep working on this and you will have it done in no time. As I said, this one is tough. You can definitely do it though if you just put in the time and effort. If you run in to any trouble or start to get discouraged, make sure that you reach out to your instructors, they are there to help you.
+                    
+Good luck!`;
                 case "notWorking":
                     return `It looks like you have a good start here, you just have some issues that are preventing the server from running. This is usually the most difficult assignment for students, so don't get discouraged. It just needs a bit more work to get things running.
                     

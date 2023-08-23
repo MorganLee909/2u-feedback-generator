@@ -34,21 +34,6 @@
             flex-direction: column;
             align-items: center;
         }
-        .optionButton{
-            padding: 10px;
-            border: none;
-            background: #474747;
-            width: 500px;
-            margin: 15px;
-            cursor: pointer;
-            color: white;
-        }
-        .optionButton:hover{
-            background: #636363;
-        }
-        .optionButton:active{
-            background: #828282;
-        }
         input{
             font-size: 26px;
         }
@@ -94,28 +79,7 @@
 <body>
     <button id="reset" onclick="reset()">Reset</button>
 
-    <div id="chooseModule" class="option">
-        <h1>Choose Module</h1>
-        <button class="optionButton" onclick="chooseModule(1)">Module 1</button>
-        <button class="optionButton" onclick="chooseModule(2)">Module 2</button>
-        <button class="optionButton" onclick="chooseModule(3)">Module 3</button>
-        <button class="optionButton" onclick="chooseModule(4)">Module 4</button>
-        <button class="optionButton" onclick="chooseModule(5)">Module 5</button>
-        <button class="optionButton" onclick="chooseModule(6)">Module 6</button>
-        <button class="optionButton" onclick="chooseModule(9)">Module 9</button>
-        <button class="optionButton" onclick="chooseModule(10)">Module 10</button>
-        <button class="optionButton" onclick="chooseModule(11)">Module 11</button>
-        <button class="optionButton" onclick="chooseModule(12)">Module 12</button>
-        <button class="optionButton" onclick="chooseModule(13)">Module 13</button>
-        <button class="optionButton" onclick="chooseModule(14)">Module 14</button>
-        <button class="optionButton" onclick="chooseModule(17)">Module 17</button>
-        <button class="optionButton" onclick="chooseModule(18)">Module 18</button>
-        <button class="optionButton" onclick="chooseModule(19)">Module 19</button>
-        <button class="optionButton" onclick="chooseModule(20)">Module 20</button>
-        <button class="optionButton" onclick="chooseModule(21)">Module 21</button>
-    </div>
-
-    <div id="feedback" class="option" style="display:none">
+    <div id="feedback" class="option">
         <div id="feedbackEntry">
             <label>Student Name
                 <input id="nameInput" type="text" onkeyup="updateText()"/>
@@ -125,8 +89,37 @@
                 <input id="gradeInput" type="number" min="0" max="100" step="1" onkeyup="updateText()"/>
             </label>
 
+            <label>Course
+                <select id="course" onchange="changeCourse()">
+                    <option value="fsf">Full Stack Flex</option>
+                    <option value="fe">Front-End</option>
+                </select>
+            </label>
+
+            <label>Module
+                <select id="module" onchange="changeCourse()">
+                    <option value="01">Module 01</option>
+                    <option value="02">Module 02</option>
+                    <option value="03">Module 03</option>
+                    <option value="04">Module 04</option>
+                    <option value="05">Module 05</option>
+                    <option value="06">Module 06</option>
+                    <option value="09">Module 09</option>
+                    <option value="10">Module 10</option>
+                    <option value="11">Module 11</option>
+                    <option value="12">Module 12</option>
+                    <option value="13">Module 13</option>
+                    <option value="14">Module 14</option>
+                    <option value="17">Module 17</option>
+                    <option value="18">Module 18</option>
+                    <option value="19">Module 19</option>
+                    <option value="20">Module 20</option>
+                    <option value="21">Module 21</option>
+                </select>
+            </label>
+
             <label>Quality
-                <select onchange="updateQuality(this)">
+                <select id="qualityInput" onchange="updateText()">
                     <option value="perfect" default>Perfect</option>
                     <option value="almostPerfect">Almost Perfect</option>
                     <option value="fewProblems">Few Problems</option>
@@ -196,23 +189,24 @@
     </div>
 
     <script src="github.js"></script>
-    <script src="module01.js"></script>
-    <script src="module02.js"></script>
-    <script src="module03.js"></script>
-    <script src="module04.js"></script>
-    <script src="module05.js"></script>
-    <script src="module06.js"></script>
-    <script src="module09.js"></script>
-    <script src="module10.js"></script>
-    <script src="module11.js"></script>
-    <script src="module12.js"></script>
-    <script src="module13.js"></script>
-    <script src="module14.js"></script>
-    <script src="module17.js"></script>
-    <script src="module18.js"></script>
-    <script src="module19.js"></script>
-    <script src="module20.js"></script>
-    <script src="module21.js"></script>
+    <script src="./rubrics/fsf01.js"></script>
+    <script src="./rubrics/fsf02.js"></script>
+    <script src="./rubrics/fsf03.js"></script>
+    <script src="./rubrics/fsf04.js"></script>
+    <script src="./rubrics/fsf05.js"></script>
+    <script src="./rubrics/fsf06.js"></script>
+    <script src="./rubrics/fsf09.js"></script>
+    <script src="./rubrics/fsf10.js"></script>
+    <script src="./rubrics/fsf11.js"></script>
+    <script src="./rubrics/fsf12.js"></script>
+    <script src="./rubrics/fsf13.js"></script>
+    <script src="./rubrics/fsf14.js"></script>
+    <script src="./rubrics/fsf17.js"></script>
+    <script src="./rubrics/fsf18.js"></script>
+    <script src="./rubrics/fsf19.js"></script>
+    <script src="./rubrics/fsf20.js"></script>
+    <script src="./rubrics/fsf21.js"></script>
+    <script src="./rubrics/fe04.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
