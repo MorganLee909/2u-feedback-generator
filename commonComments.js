@@ -1,4 +1,4 @@
-let gitHub = [
+let commonComments = [
     {
         title: "Small commit history",
         comment: `Your commit history is a bit sparse. Make sure that you commit every time that you make a meaningful change to the code and give it a message that describes the change that was made. Think of commits as a history of the development of your repository.`,

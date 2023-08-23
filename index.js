@@ -1,11 +1,11 @@
-let qualityInput = document.getElementById("qualityInput");
 let nameInput = document.getElementById("nameInput");
 let gradeInput = document.getElementById("gradeInput");
-let moduleComments = document.getElementById("moduleComments").children;
-let feedbackText = document.getElementById("feedbackText");
 let courseInput = document.getElementById("courseInput");
 let moduleInput = document.getElementById("moduleInput");
-let commonComments = document.querySelectorAll("#gitHubComments input");
+let qualityInput = document.getElementById("qualityInput");
+let commonCommentsInput = document.querySelectorAll("#gitHubComments input");
+let moduleComments = document.getElementById("moduleComments").children;
+let feedbackText = document.getElementById("feedbackText");
 let moduleCommentsContainer = document.getElementById("moduleComments");
 
 let generateFeedback = ()=>{
@@ -31,9 +31,9 @@ let generateFeedback = ()=>{
         } 
     }
     
-    for(let i = 0; i < commonComments.length; i++){
-        if(commonComments[i].checked){
-            comments += `${commentIndex}) ${gitHub[parseInt(commonComments[i].getAttribute("data-idx"))].comment}\n\n`;
+    for(let i = 0; i < commonCommentsInput.length; i++){
+        if(commonCommentsInput[i].checked){
+            comments += `${commentIndex}) ${commonComments[parseInt(commonCommentsInput[i].getAttribute("data-idx"))].comment}\n\n`;
             commentIndex++;
         }
     }
@@ -129,8 +129,8 @@ let reset = ()=>{
     qualityInput.value = "perfect";
 
     
-    for(let i = 0; i < commonComments.length; i++){
-        commonComments[i].checked = false;
+    for(let i = 0; i < commonCommentsInput.length; i++){
+        commonCommentsInput[i].checked = false;
     }
 
     displayCommentOptions(getModule());
