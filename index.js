@@ -5,6 +5,8 @@ let moduleComments = document.getElementById("moduleComments").children;
 let feedbackText = document.getElementById("feedbackText");
 let courseInput = document.getElementById("courseInput");
 let moduleInput = document.getElementById("moduleInput");
+let commonComments = document.querySelectorAll("#gitHubComments input");
+let moduleCommentsContainer = document.getElementById("moduleComments");
 
 let generateFeedback = ()=>{
     let module = getModule();
@@ -29,10 +31,9 @@ let generateFeedback = ()=>{
         } 
     }
     
-    let gitHubInputs = document.querySelectorAll("#gitHubComments input");
-    for(let i = 0; i < gitHubInputs.length; i++){
-        if(gitHubInputs[i].checked){
-            comments += `${commentIndex}) ${gitHub[parseInt(gitHubInputs[i].getAttribute("data-idx"))].comment}\n\n`;
+    for(let i = 0; i < commonComments.length; i++){
+        if(commonComments[i].checked){
+            comments += `${commentIndex}) ${gitHub[parseInt(commonComments[i].getAttribute("data-idx"))].comment}\n\n`;
             commentIndex++;
         }
     }
@@ -54,15 +55,14 @@ const changeCourse = ()=>{
 }
 
 let displayCommentOptions = (module)=>{
-    let container = document.getElementById("moduleComments");
-    while(container.children.length > 0){
-        container.removeChild(container.firstChild);
+    while(moduleCommentsContainer.children.length > 0){
+        moduleCommentsContainer.removeChild(moduleCommentsContainer.firstChild);
     }
 
     for(let i = 0; i < module.comments.length; i++){
         let label = document.createElement("label");
         label.textContent = module.comments[i].title;
-        container.appendChild(label);
+        moduleCommentsContainer.appendChild(label);
 
         switch(module.comments[i].type){
             case "checkbox":
@@ -128,9 +128,9 @@ let reset = ()=>{
     moduleInput.value = "01";
     qualityInput.value = "perfect";
 
-    let gitHubComments = document.querySelectorAll("#gitHubComments input");
-    for(let i = 0; i < gitHubComments.length; i++){
-        gitHubComments[i].checked = false;
+    
+    for(let i = 0; i < commonComments.length; i++){
+        commonComments[i].checked = false;
     }
 
     displayCommentOptions(getModule());
