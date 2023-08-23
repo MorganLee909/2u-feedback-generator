@@ -83,14 +83,14 @@
         </label>
 
         <label>Course
-            <select id="course" onchange="changeCourse()">
+            <select id="courseInput" onchange="changeCourse()">
                 <option value="fsf">Full Stack Flex</option>
                 <option value="fe">Front-End</option>
             </select>
         </label>
 
         <label>Module
-            <select id="module" onchange="changeCourse()">
+            <select id="moduleInput" onchange="changeCourse()">
                 <option value="01">Module 01</option>
                 <option value="02">Module 02</option>
                 <option value="03">Module 03</option>
@@ -126,47 +126,47 @@
 
         <div id="gitHubComments">
             <label>Small commit history
-                <input type="checkbox" onchange="updateComment()" data-idx="0"/>
+                <input type="checkbox" onchange="updateText()" data-idx="0"/>
             </label>
 
             <label>Bad repo name
-                <input type="checkbox" onchange="updateComment()" data-idx="1"/>
+                <input type="checkbox" onchange="updateText()" data-idx="1"/>
             </label>
 
             <label>Contains develop directory
-                <input type="checkbox" onchange="updateComment()" data-idx="2"/>
+                <input type="checkbox" onchange="updateText()" data-idx="2"/>
             </label>
 
             <label>Bad README
-                <input type="checkbox" onchange="updateComment()" data-idx="3"/>
+                <input type="checkbox" onchange="updateText()" data-idx="3"/>
             </label>
 
             <label>Copy/paste of README
-                <input type="checkbox" onchange="updateComment()" data-idx="4"/>
+                <input type="checkbox" onchange="updateText()" data-idx="4"/>
             </label>
 
             <label>Repository contains node_modules
-                <input type="checkbox" onchange="updateComment()" data-idx="5"/>
+                <input type="checkbox" onchange="updateText()" data-idx="5"/>
             </label>
 
             <label>No video
-                <input type="checkbox" onchange="updateComment()" data-idx="6"/>
+                <input type="checkbox" onchange="updateText()" data-idx="6"/>
             </label>
 
             <label>package-lock.json in .gitignore
-                <input type="checkbox" onchange="updateComment()" data-idx="7"/>
+                <input type="checkbox" onchange="updateText()" data-idx="7"/>
             </label>
 
             <label>No deployment
-                <input type="checkbox" onchange="updateComment()" data-idx="8"/>
+                <input type="checkbox" onchange="updateText()" data-idx="8"/>
             </label>
 
             <label>Multiple import errors
-                <input type="checkbox" onchange="updateComment()" data-idx="9"/>
+                <input type="checkbox" onchange="updateText()" data-idx="9"/>
             </label>
 
             <label>Uploaded video to GitHub
-                <input type="checkbox" onchange="updateComment()" data-idx="10"/>
+                <input type="checkbox" onchange="updateText()" data-idx="10"/>
             </label>
         </div>
 

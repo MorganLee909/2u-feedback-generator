@@ -2,7 +2,9 @@ let qualityInput = document.getElementById("qualityInput");
 let nameInput = document.getElementById("nameInput");
 let gradeInput = document.getElementById("gradeInput");
 let moduleComments = document.getElementById("moduleComments").children;
-let feedbackText = document.getElementById("feedbackText")
+let feedbackText = document.getElementById("feedbackText");
+let courseInput = document.getElementById("courseInput");
+let moduleInput = document.getElementById("moduleInput");
 
 let generateFeedback = ()=>{
     let module = getModule();
@@ -95,7 +97,7 @@ let displayCommentOptions = (module)=>{
 }
 
 const getModule = ()=>{
-    let module = `${document.getElementById("course").value}${document.getElementById("module").value}`;
+    let module = `${courseInput.value}${moduleInput.value}`;
 
     switch(module){
         case "fsf01": return module01;
@@ -120,20 +122,20 @@ const getModule = ()=>{
 }
 
 let reset = ()=>{
+    nameInput.value = "";
+    gradeInput.value = "";
+    courseInput.value = "fsf";
+    moduleInput.value = "01";
+    qualityInput.value = "perfect";
+
     let gitHubComments = document.querySelectorAll("#gitHubComments input");
     for(let i = 0; i < gitHubComments.length; i++){
         gitHubComments[i].checked = false;
     }
 
-    document.getElementById("nameInput").value = "";
-    document.getElementById("gradeInput").value = "";
-    feedbackText.value = "";
+    displayCommentOptions(getModule());
 
-    let options = document.querySelectorAll(".option");
-    for(let i = 0; i < options.length; i++){
-        options[i].style.display = "none";
-    }
-    document.getElementById("chooseModule").style.display = "flex";
+    updateText();
 }
 
 let copy = ()=>{
@@ -143,3 +145,5 @@ let copy = ()=>{
 let updateText = ()=>{
     feedbackText.value = generateFeedback();
 }
+
+reset();
