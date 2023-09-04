@@ -65,6 +65,11 @@ Be sure to reach out to your instructors if you need any help. That is what they
             title: "One project",
             type: "checkbox",
             comment: "You need to include more than one project in your portfolio, and the first project should display larger than the others to mark it as the primary thing that you want to display. I understand that you may not have more than one project to display yet, but placeholders are perfectly fine as well. An image of a fake/future project with a title and a link to anywhere is fine."
+        },
+        {
+            title: "No name",
+            type: "checkbox",
+            comment: "You did not include your name in the section about you, which is one of the requirements for the assignment."
         }
     ]
 }

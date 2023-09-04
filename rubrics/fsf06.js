@@ -54,6 +54,11 @@ Remember to reach out to your instructors if you need any further help, that is 
             title: "Location buttons don't re-search",
             type: "checkbox",
             comment: "While you are saving the search results to the page, they don't work as buttons in order to display the information for that location again. You need to make sure that the search history can be used as a way to quickly see weather information just by clicking on it."
+        },
+        {
+            title: "No current weather",
+            type: "checkbox",
+            comment: "You are missing the display for the current weather. In addition to the 5 day forecast, you need to make sure that you have a display that shows the city name, date, an icon of the current weather and the current temperature, humidity and windspeed"
         }
     ]
 };

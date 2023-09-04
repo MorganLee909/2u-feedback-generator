@@ -44,6 +44,11 @@ Good luck!`;
 
     comments: [
         {
+            title: "No IDs",
+            type: "checkbox",
+            comment: "Your application is not creating a unique ID for each note that is created. The unique ID is the way that you should be able to access specific notes to view them or delete them. Because two notes can have the same title and content, you have to have an ID for each one. It is best to use an NPM package for creating a unique ID, such as 'uuid', or 'crypto'."
+        },
+        {
             title: "Cannot view previous notes",
             type: "checkbox",
             comment: "Users are unable to view previously saved notes in the application. Ensure that when a note is clicked on, it displays that note on the main editor. Save the ID of the note to the element that you are clicking on, then fetch the note with that ID to display it on the page."
@@ -57,6 +62,11 @@ Good luck!`;
             title: "No save button",
             type: "checkbox",
             comment: "The main issue that you have in your application is that there is no way to save notes. After typing in a new note, no option appears for me to save the note. This, of course, limits all of the other functionality of the application. Make sure that you display a save button for the user to save the note."
+        },
+        {
+            title: "Non-unique IDs",
+            type: "checkbox",
+            comment: "While you are creating new notes in the databse file, you are not creating unique IDs for each note. Each note should have its own ID so that they can be easily referenced."
         }
     ]
 }

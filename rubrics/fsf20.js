@@ -43,6 +43,11 @@ Also remember to reach out to your instructors if you need further help, that is
 
     comments: [
         {
+            title: "No header",
+            type: "checkbox",
+            comment: "You don't have any header component. You need to create a header component that contains links to the different sections of your portfolio page and is displayed at the top of the page."
+        },
+        {
             title: "No footer",
             type: "checkbox",
             comment: "Your application doesn't have a footer. Make sure to create a 'Footer' component that will display on all pages."

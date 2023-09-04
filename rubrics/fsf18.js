@@ -61,6 +61,14 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "No error, no thought",
                     comment: "Creating a user thought is not working. I am not receiving back any errors, but the thought is not created in the database."
+                },
+                {
+                    title: "Wrong route",
+                    comment: "You have an incorrect route for creating a thought. The correct route should be: POST '/api/thoughts'."
+                },
+                {
+                    title: "Username associated",
+                    comment: "When creating a thought, you are using the username of the user to find and create the association with the user. You should always use the ID for this, never the username. The ID is the unique identifier for the user."
                 }
             ]
         },
@@ -99,6 +107,10 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "Empty object response",
                     comment: "The route for getting all thoughts returns an empty object"
+                },
+                {
+                    title: "Error",
+                    comment: "When the route for getting all thoughts is run, there is an error that is thrown. The error is preventing the correct data from being returned from the route."
                 }
             ]
         },
@@ -137,7 +149,7 @@ Remember to reach out to your instructors if you need any help with this assignm
             options: [
                 {
                     title: "No route",
-                    comment: "You don't have any route for updating the data on a user."
+                    comment: "You don't have any route for updating the data on a user. The correct route should be: PUT '/api/users/:userId'. Make sure that you are using a PUT request and that it includes the thought ID of the thought that you want to update."
                 }
             ]
         },
@@ -146,8 +158,12 @@ Remember to reach out to your instructors if you need any help with this assignm
             type: "select",
             options: [
                 {
-                    title: "Not working",
+                    title: "Not updating database",
                     comment: "Updating thoughts is not working. After making a PUT request for thoughts, the data in the database is unchanged."
+                },
+                {
+                    title: "Username not updated",
+                    comment: "When updating a thought, the text of the thought is updated, but the username is not."
                 }
             ]
         },
@@ -158,6 +174,10 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "No route",
                     comment: "You don't have any route for deleting users."
+                },
+                {
+                    title: "No user with that ID",
+                    comment: "When attempting to delete a user, the server just sends back a message that there is no user with that ID and doesn't delete the user, every time."
                 }
             ]
         },
@@ -178,23 +198,32 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "Wrong route",
                     comment: "You have are using an incorrect route for deleting reactions. It is very import to maintain the correct routes in an API. The correct route to delete a reaction would be: DELETE '/api/thoughts/:thoughtId/reactions/:reactionId'."
+                },
+                {
+                    title: "No error, not deleted",
+                    comment: "When attempting to delete a reaction, I receive a response, and no error messages, but the reaction is never removed from the thought."
+                }
+            ]
+        },
+        {
+            title: "DELETE FRIEND",
+            type: "select",
+            options: [
+                {
+                    title: "Error",
+                    comment: "An error is created when trying to delete friends from a user. The errors is causing the route to fail and the friend is never removed from the user."
                 }
             ]
         },
         {
             title: "No friends routes",
             type: "checkbox",
-            comment: "Your API doesn't contain any routes for creating/deleting friends"
+            comment: "Your API doesn't contain any routes for creating/deleting friends."
         },
         {
             title: "No reaction routes",
             type: "checkbox",
-            comment: "Your API doesn't contain any routes for creating/deleting reactions to thoughts"
-        },
-        {
-            title: "Association created through username",
-            type: "checkbox",
-            comment: "When creating a thought, you are using the username of the user to find and create the association with the user. You should always use the ID for this, never the username. The ID is the unique identifier for the user."
+            comment: "Your API doesn't contain any routes for creating/deleting reactions to thoughts."
         },
         {
             title: "Controllers not separated",
@@ -205,6 +234,11 @@ Remember to reach out to your instructors if you need any help with this assignm
             title: "BONUS completed",
             type: "checkbox",
             comment: "Excellent work on completing the bonus. When a user is deleted, all of their thoughts are also deleted. This helped make up any points that you lost."
+        },
+        {
+            title: "Reaction defined within thought",
+            type: "checkbox",
+            comment: "You are defining the thought model within the thought itself. You need to import the reaction schema (don't model it, just export/import the schema). Then you can simply include the reaction schema in the thought with 'reactions: [reactionSchema]'"
         }
     ]
 }

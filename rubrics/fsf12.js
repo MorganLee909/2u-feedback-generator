@@ -46,6 +46,16 @@ Make sure that you reach out to your instructors if you need any extra help. The
             title: "User interacts with IDs",
             type: "checkbox",
             comment: "Users of the application should never have to interact with IDs. When you want the user to choose an option such as a department, role or employee, make sure that you display all of the options for them to choose from. Then the application should use the ID in the background to perform the necessary operations."
+        },
+        {
+            title: "Bonus: Some completed",
+            type: "checkbox",
+            comment: "Great work on completing some of the bonuses for this assignment. This can be a challenging assignment and you still went above and beyond to complete some of the more difficult parts of it. Really great work!"
+        },
+        {
+            title: "BONUS: All completed",
+            type: "checkbox",
+            comment: "Amazing work on completing all of the bonuses. This is a very challenging assignment for many people, but you were still able to do it well and every go way beyond by completing the bonuses. These bonus assignments are a lot of work and I know that you must have put a lot of extra time into completing them. Really amazing work, keep it up and you will be a pro in no time."
         }
     ]
 }
