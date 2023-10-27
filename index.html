@@ -71,6 +71,9 @@
             margin-top: 15px;
             color: green;
         }
+        #plagiarismData{
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -122,6 +125,7 @@
                 <option value="manyProblems">Many Problems</option>
                 <option value="inProgress">In Progress</option>
                 <option value="notWorking">Not Working</option>
+                <option value="plagiarism">Plagiarism</option>
             </select>
         </label>
     
@@ -175,6 +179,16 @@
 
         <h3>Module Comments</h3>
         <div id="moduleComments"></div>
+
+        <div id="plagiarismData" style="display:none">
+            <label>Student Full Name
+                <input id="plagName" type="text" onkeyup="updateText()"/>
+            </label>
+
+            <label>Class
+                <input id="plagClass" type="text" onkeyup="updateText()"/>
+            </label>
+        </div>
     </div>
 
     <div id="text">

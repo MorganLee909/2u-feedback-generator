@@ -7,8 +7,12 @@ let commonCommentsInput = document.querySelectorAll("#gitHubComments input");
 let moduleComments = document.getElementById("moduleComments").children;
 let feedbackText = document.getElementById("feedbackText");
 let moduleCommentsContainer = document.getElementById("moduleComments");
+let plagName = document.getElementById("plagName");
+let plagClass = document.getElementById("plagClass");
 
 let generateFeedback = ()=>{
+    if(qualityInput.value === "plagiarism") return plagiarismText();
+
     let module = getModule();
     let comments = "";
     let commentIndex = 1;
@@ -47,6 +51,14 @@ ${module.text.conclusion(qualityInput.value)}
 
 ${gradeInput.value}/100
 -Central grader, LM`;
+}
+
+const plagiarismText = ()=>{
+    return `Student: ${plagName.value}
+    
+Class: ${plagClass.value}
+
+Assignment: Module ${moduleInput.value}`;
 }
 
 const changeCourse = ()=>{
@@ -145,5 +157,20 @@ let copy = ()=>{
 let updateText = ()=>{
     feedbackText.value = generateFeedback();
 }
+
+let gitHubCommentsDiv = document.getElementById("gitHubComments");
+let moduleCommentsDiv = document.getElementById("moduleComments");
+let plagiarismDataDiv = document.getElementById("plagiarismData");
+qualityInput.addEventListener("change", ()=>{
+    if(qualityInput.value == "plagiarism"){
+        gitHubCommentsDiv.style.display = "none";
+        moduleCommentsDiv.style.display = "none";
+        plagiarismDataDiv.style.display = "flex";
+    }else{
+        gitHubCommentsDiv.style.display = "flex";
+        moduleCommentsDiv.style.display = "flex";
+        plagiarismDataDiv.style.display = "none";
+    }
+});
 
 reset();
