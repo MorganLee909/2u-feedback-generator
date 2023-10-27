@@ -74,6 +74,10 @@
         #plagiarismData{
             flex-direction: column;
         }
+        #plagiarismData label{
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
@@ -84,11 +88,11 @@
             <input id="nameInput" type="text" onkeyup="updateText()"/>
         </label>
 
-        <label>Grade
+        <label class="plagHide">Grade
             <input id="gradeInput" type="number" min="0" max="100" step="1" onkeyup="updateText()"/>
         </label>
 
-        <label>Course
+        <label class="plagHide">Course
             <select id="courseInput" onchange="changeCourse()">
                 <option value="fsf">Full Stack Flex</option>
                 <option value="fe">Front-End</option>
@@ -129,7 +133,7 @@
             </select>
         </label>
     
-        <h3>Common Comments</h3>
+        <h3 class="plagHide">Common Comments</h3>
 
         <div id="gitHubComments">
             <label>Small commit history
@@ -177,16 +181,24 @@
             </label>
         </div>
 
-        <h3>Module Comments</h3>
+        <h3 class="plagHide">Module Comments</h3>
         <div id="moduleComments"></div>
 
         <div id="plagiarismData" style="display:none">
-            <label>Student Full Name
-                <input id="plagName" type="text" onkeyup="updateText()"/>
-            </label>
-
             <label>Class
                 <input id="plagClass" type="text" onkeyup="updateText()"/>
+            </label>
+
+            <label>Student Repository
+                <input id="plagStudentRepo" type="url" onkeyup="updateText()"/>
+            </label>
+
+            <label>Matching Repository
+                <input id="plagMatchingRepo" type="url" onkeyup="updateText()"/>
+            </label>
+
+            <label>Explanation
+                <textarea id="plagExplain" onkeyup="updateText()" rows="10" cols="50"></textarea>
             </label>
         </div>
     </div>

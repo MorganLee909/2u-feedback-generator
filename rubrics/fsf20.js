@@ -81,6 +81,11 @@ Also remember to reach out to your instructors if you need further help, that is
             title: "Missing contact form",
             type: "checkbox",
             comment: "You are missing the required contact form. Make sure that you create a form for contacting you that contains form validation."
+        },
+        {
+            title: "Conditional rendering pages",
+            type: "checkbox",
+            comment: "Make sure that you are using conditional rendering to display the different pages of your application. Currently you are displaying all pages on a single large page. You should use React conditional rendering in order to display each page when the link is clicked on and hide the other pages."
         }
     ]
 }
