@@ -50,9 +50,9 @@ Best of luck to you!`;
             comment: "You are missing your table of contents. You need to have a table of contents with a link that goes to each section of the generated README."
         },
         {
-            title: "No contact section",
+            title: "No questions section",
             type: "checkbox",
-            comment: "You need to make sure that the generated README has a contact section that contacts both a mailto link with an email and a link to their GitHub."
+            comment: "You need to make sure that the generated README has a questions section that contains both a mailto link with an email and a link to their GitHub."
         },
         {
             title: "Table of contents doesn't link",

@@ -79,6 +79,10 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "No error, no reaction",
                     comment: "Creating a  reaction to a thought is not working. I am not receiving back any errors, but the reaction is not added to the thought in the database."
+                },
+                {
+                    title: "Wrong route",
+                    comment: "You have an incorrect route for creating reactions. The correct route should be POST `/api/thoughts/:thoughtId/reactions'."
                 }
             ]
         },
@@ -212,6 +216,10 @@ Remember to reach out to your instructors if you need any help with this assignm
                 {
                     title: "Error",
                     comment: "An error is created when trying to delete friends from a user. The errors is causing the route to fail and the friend is never removed from the user."
+                },
+                {
+                    title: "No route",
+                    comment: "You don't have any route for deleting friends from a user."
                 }
             ]
         },
@@ -239,6 +247,11 @@ Remember to reach out to your instructors if you need any help with this assignm
             title: "Reaction defined within thought",
             type: "checkbox",
             comment: "You are defining the thought model within the thought itself. You need to import the reaction schema (don't model it, just export/import the schema). Then you can simply include the reaction schema in the thought with 'reactions: [reactionSchema]'"
+        },
+        {
+            title: "Reaction is a reference",
+            type: "checkbox",
+            comment: "In your thought models you are creating reactions as just a reference to reactions, however, you should be creating it as a subdocument instead with the reaction fully nested inside of the thought. To do this, you can need to export the reaction schema instead of modeling it. Then import it and use it within the thought model with 'reactions: [ReactionSchema]'."
         }
     ]
 }

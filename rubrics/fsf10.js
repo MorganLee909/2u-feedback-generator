@@ -10,6 +10,8 @@ let module10 = {
                     return `Good job on this assignment ${name}. You did a really good job creating a working CLI application using NodeJS to generate an SVG. This is a big step because you are now able to use NodeJS, which can be a challenging thing to learn. Here are a few things that could be improved.`;
                 case "manyProblems":
                     return `Good work on this assignment ${name}. You created a working CLI that demonstrates that you are comfortable with NodeJS and Inquirer. You did great creating this, though there are some problems.`;
+                case "inProgress":
+                    return `I can see that you have gotten a start on this assignment, ${name}, but haven't yet finished it. You have added some code to get it going, but it isn't quite working yet.`
                 case "notWorking":
                     return `Great start on this assignment ${name}. You have the base of the assignment built out. This is a really difficult assignment and it can be a challenge getting used to using classes. Unfortunately I was unable to generate a logo with the program.`;
             }
@@ -25,6 +27,10 @@ let module10 = {
                     return `As I said previously, you did a great job on this one. You have a good, working CLI application. NodeJS and these concepts are very important to the rest of this course and web development in general, so you have given yourself a good start here. Keep up the great work!`;
                 case "manyProblems":
                     return `Again, good job on getting this put together. Getting started with NodeJS can be a daunting task, yet you really did a good job creating a working CLI. This is a challenging assignment, yet you were still able to create a working project. Keep up the good work!`;
+                case "inProgress":
+                    return `Good job getting a start on this assignment. It just needs some more work to get it running properly. I am sure that it will work great once you put some more time into it.
+                    
+Make sure that you reach out to your instructors for help if you need it, they are there to help you. Good luck!`;
                 case "notWorking":
                     return `You have gotten a good start on this assignment, you just need to fix a few things in order to get the program running properly. Again, this is a tough assignment. 
 

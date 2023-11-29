@@ -42,5 +42,9 @@ let commonComments = [
     {
         title: "Uploaded video to GitHub",
         comment: "Don't upload videos to GitHub. GitHub is built for code and is not meant to be used to hold large files such as video. Use a video sharing service such as Screencastify or YouTube and then just share the link in your README file and the submission."
+    },
+    {
+        title: "No access to video",
+        comment: "While you have submitted a link to your walkthrough video, unfortunately I am unable to access it. The usual reason for this is either that you have a type in your link, or that you have not made the video public for other people to view. Make sure that you check the link and that it is public so that we can view and grade it, as the video is a large part of the grade."
     }
 ];

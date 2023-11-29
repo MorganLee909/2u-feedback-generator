@@ -56,6 +56,36 @@ Also, don't forget to reach out to you instructors if you need help with anythin
             title: "Cannot edit/delete",
             type: "checkbox",
             comment: "You don't have any way for a user to edit or delete their own posts after they have made them."
+        },
+        {
+            title: "Cannot delete",
+            type: "checkbox",
+            comment: "you don't have any way for a user to delete their own posts after they have created them."
+        },
+        {
+            title: "No comments",
+            type: "checkbox",
+            comment: "There is no option to comment on any of the posts. After logging in, a user should be able to leave a comment on any post on the home page."
+        },
+        {
+            title: "No page for single post",
+            type: "checkbox",
+            comment: "The posts on the home page should have the functionality that you can click on them and then be taken to a page for that post. This page should display all of the information on the post including the poster, the date, the title and contents as well as any comments that have been made on the post. "
+        },
+        {
+            title: "Cannot signup",
+            type: "checkbox",
+            comment: "One of the main issues that you have is that there is no way for a user to signup/login. Without this ability, most of the other functionality is not available as well. Users cannot create/edit/delete their own posts if there is no way to access the dashboard. Make sure that you have a route for both a new user to sign up and for them to login."
+        },
+        {
+            title: "Cannot create post",
+            type: "select",
+            options: [
+                {
+                    title: "Submitting doesn't create",
+                    comment: "You provide logged in users the option to create users, however, submitting the new post does not actually create a new post in the database. This means that much of the other functionality (editing/deleting posts) also does not work since there is no way to create a post."
+                }
+            ]
         }
     ]
 }

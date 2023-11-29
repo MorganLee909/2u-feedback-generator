@@ -59,6 +59,11 @@ Remember to reach out to your instructors if you need any further help, that is 
             title: "No current weather",
             type: "checkbox",
             comment: "You are missing the display for the current weather. In addition to the 5 day forecast, you need to make sure that you have a display that shows the city name, date, an icon of the current weather and the current temperature, humidity and windspeed"
+        },
+        {
+            title: "Blocking mixed content",
+            type: "checkbox",
+            comment: "The deployed application is blocking the request for data. The reason for this is that the deployed version is running on secure 'https', but you are trying to make an API request on insecure 'http'. This will work on your development version on your computer because you are using insecure 'localhost', but will not work once deployed. To fix this issue, just make sure that you API requests use 'https' instead of 'http'. This will work in both development and production environments."
         }
     ]
 };

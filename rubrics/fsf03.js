@@ -3,7 +3,7 @@ let module03 = {
         introduction: function(quality, name){
             switch(quality){
                 case "perfect":
-                    return `Excellent job on this assignment ${name}. You create a really good password generator application that displays that you really understand how to use JavaScript. You met all of the requirements in the process and created a very simple to use and effect application.`;
+                    return `Excellent job on this assignment ${name}. You create a really good password generator application that displays that you really understand how to use JavaScript. You met all of the requirements in the process and created a very simple to use and effective application.`;
                 case "almostPerfect":
                     return `Great work here ${name}. You created a really great password generator using JavaScript. JS can be a bit difficult to get the hang of at first, but you did a really great job on picking it up and creating something great.`;
                 case "fewProblems":
@@ -49,6 +49,11 @@ If you need help, don't forget to reach out to your instructors. They are there 
             title: "Missing prompts",
             type: "checkbox",
             comment: "You are missing some of the password prompts for the user. Remember to prompt the user for length and whether they want upper-case, lower-case, numbers and special characters."
+        },
+        {
+            title: "CSS not linked",
+            type: "checkbox",
+            comment: "Your CSS is not properly linked, meaning that none of your styles are being loaded. You need to make sure that you use the full relative path from the HTML. So the href should be './assets/css/style.css'"
         }
     ]
 }

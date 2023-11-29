@@ -46,7 +46,7 @@ Good luck!`;
         {
             title: "No IDs",
             type: "checkbox",
-            comment: "Your application is not creating a unique ID for each note that is created. The unique ID is the way that you should be able to access specific notes to view them or delete them. Because two notes can have the same title and content, you have to have an ID for each one. It is best to use an NPM package for creating a unique ID, such as 'uuid', or 'crypto'."
+            comment: "Your application is not creating a unique ID for each note that is created. The unique ID is the way that you should be able to access specific notes to view them or delete them. Because two notes can have the same title and content, you have to have an ID for each one. It is best to use an NPM package for creating a unique ID, such as 'uuid', or 'crypto'. Personally, I like to use 'const uuid = require('crypto').randomUUID' since this is a node-native package and you don't have to install anything. Then you can just call 'uuid()' which returns a new ID whenever you need it. "
         },
         {
             title: "Cannot view previous notes",
@@ -66,7 +66,7 @@ Good luck!`;
         {
             title: "Non-unique IDs",
             type: "checkbox",
-            comment: "While you are creating new notes in the databse file, you are not creating unique IDs for each note. Each note should have its own ID so that they can be easily referenced."
+            comment: `While you are creating new notes in the databse file, you are not creating unique IDs for each note. Each note should have its own ID so that they can be easily referenced. I personally prefer using the Node-native 'crypto' library. You can use this by importing it with 'const uuid = require("crypto").randomUUID;' Then you can just call the function 'uuid()' to create a unique ID.`
         }
     ]
 }

@@ -60,6 +60,11 @@ Make sure that you reach out to your instructors if you need any help with this 
             title: "Continues after timer",
             type: "checkbox",
             comment: "After the timer reaches 0, the quiz does not end and you can still continue as normal."
+        },
+        {
+            title: "Little/no style",
+            type: "checkbox",
+            comment: "Make sure that you add style to your application with CSS. Your application has little or no style and mostly just looks like plain HTML. Adding style can both make it easier for users to use the application and add a personal touch with your own 'branding'."
         }
     ]
 }

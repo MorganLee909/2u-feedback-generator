@@ -138,7 +138,12 @@ const getModule = ()=>{
         case "fsf19": return module19;
         case "fsf20": return module20;
         case "fsf21": return module21;
+        case "fe01": return module01;
+        case "fe02": return module02;
+        case "fe03": return moduleFE03;
         case "fe04": return moduleFE04;
+        case "fe05": return module03;
+        case "fe07": return moduleFE07;
     }
 }
 

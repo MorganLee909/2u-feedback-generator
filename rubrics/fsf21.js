@@ -39,5 +39,21 @@ Remember that you can always reach out to you instructors for help if you need i
         }
     },
 
-    comments: []
+    comments: [
+        {
+            title: "Using REST front-end",
+            type: "checkbox",
+            comment: "Your front-end is still trying to request data with a REST API. Make sure that you change the front-end to also use graphQL so that it can communicate with the backend. If you don't update the front-end as well, then nothing else will work, such as signing in, logging in, saving books, etc."
+        },
+        {
+            title: "Created mutations, still using REST",
+            type: "checkbox",
+            comment: "None of the requests to the back-end of your application are working. The reason for this is that you are still using the REST routes. I can see that you have created the mutations on the front-end, however, you are still using the functions from 'utils/API.js', so the graphQL mutations are never used."
+        },
+        {
+            title: "Many errors on startup",
+            type: "checkbox",
+            comment: "When attempting to run the application, there are many errors that are being shown, preventing the application from running at all. Make sure that you use the error messages to help debug the program since it will generally tell you what is wrong and will give the file and line number of where to find the problem."
+        }
+    ]
 }
